@@ -3,6 +3,7 @@ package dev.dokup.testbed
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import dev.dokup.testbed.di.ActivityModule
 import dev.dokup.testbed.ui.main.MainActivityModule
 import javax.inject.Singleton
 
@@ -10,7 +11,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        MainActivityModule::class
+        ActivityModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

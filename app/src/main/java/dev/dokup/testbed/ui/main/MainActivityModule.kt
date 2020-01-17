@@ -5,6 +5,10 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 interface MainActivityModule {
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+        modules = [
+            MainActivityBindsModule::class
+        ]
+    )
     fun contributeMainActivity(): MainActivity
 }

@@ -1,11 +1,11 @@
 package dev.dokup.testbed.ui.main
 
-import android.content.Context
+import android.app.Activity
 import dagger.Binds
 import dagger.Module
 
 @Module
 interface MainActivityBindsModule {
     @Binds
-    fun bindContext(activity: MainActivity): Context
+    fun bindActivity(activity: MainActivity): Activity
 }
