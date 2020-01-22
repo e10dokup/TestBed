@@ -4,6 +4,8 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dev.dokup.testbed.di.ActivityModule
+import dev.dokup.testbed.di.RepositoryModule
+import dev.dokup.testbed.di.RoomModule
 import dev.dokup.testbed.ui.main.MainActivityModule
 import javax.inject.Singleton
 
@@ -11,10 +13,15 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        ActivityModule::class
+        ActivityModule::class,
+        RepositoryModule::class,
+        RoomModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {
-    @Component.Factory
-    interface Factory : AndroidInjector.Factory<App>
+    @Component.Builder
+    interface Builder {
+        fun roomModule(roomModule: RoomModule): Builder
+        fun build(): AppComponent
+    }
 }

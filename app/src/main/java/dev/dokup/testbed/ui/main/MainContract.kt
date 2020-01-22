@@ -8,5 +8,6 @@ interface MainContract {
     interface Presenter {
         fun attachView(view: View)
         fun onClickLogcatSample()
+        fun onClickExpenseSample()
     }
 }

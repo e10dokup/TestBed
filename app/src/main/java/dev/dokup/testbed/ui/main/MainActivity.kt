@@ -27,5 +27,9 @@ class MainActivity : DaggerAppCompatActivity(), MainContract.View {
         binding.logcatSampleButton.setOnClickListener {
             presenter.onClickLogcatSample()
         }
+
+        binding.expenseSampleButton.setOnClickListener {
+            presenter.onClickExpenseSample()
+        }
     }
 }

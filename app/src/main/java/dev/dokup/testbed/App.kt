@@ -2,9 +2,13 @@ package dev.dokup.testbed
 
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import dev.dokup.testbed.di.RoomModule
 
 class App : DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.factory().create(this)
+        return DaggerAppComponent
+            .builder()
+            .roomModule(RoomModule(this))
+            .build()
     }
 }

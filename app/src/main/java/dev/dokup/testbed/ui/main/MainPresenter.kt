@@ -15,4 +15,8 @@ class MainPresenter @Inject constructor(
     override fun onClickLogcatSample() {
         navigator.navigateToLogcatSample()
     }
+
+    override fun onClickExpenseSample() {
+        navigator.navigateToExpenseSample()
+    }
 }

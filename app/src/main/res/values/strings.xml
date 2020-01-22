@@ -8,4 +8,8 @@
     <string name="start_log_e">Start Log.e</string>
     <string name="start_log_wtf">Start Log.wtf</string>
     <string name="start_log_v">Start Log.v</string>
+    <string name="name">Name</string>
+    <string name="price">price</string>
+    <string name="save_expense">Save expense</string>
+    <string name="expense_sample">Expense sample</string>
 </resources>
