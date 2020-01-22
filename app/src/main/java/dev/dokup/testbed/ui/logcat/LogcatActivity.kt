@@ -27,8 +27,24 @@ class LogcatActivity : DaggerAppCompatActivity(), LogcatContract.View {
 
         presenter.attachView(this)
 
+        binding.logcatVButton.setOnClickListener {
+            presenter.onClickLogv()
+        }
+
         binding.logcatDButton.setOnClickListener {
             presenter.onClickLogd()
+        }
+
+        binding.logcatIButton.setOnClickListener {
+            presenter.onClickLogi()
+        }
+
+        binding.logcatWButton.setOnClickListener {
+            presenter.onClickLogw()
+        }
+
+        binding.logcatEButton.setOnClickListener {
+            presenter.onClickLoge()
         }
     }
 

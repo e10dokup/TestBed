@@ -32,6 +32,24 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/logcat_v_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:textAppearance="@style/Widget.MaterialComponents.Button"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/start_log_v"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appbar_layout" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/logcat_d_button"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="match_parent"
@@ -39,17 +57,69 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="48dp"
-                android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/colorPrimaryLight"
                 android:textAppearance="@style/Widget.MaterialComponents.Button"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="@string/start_log_d"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/appbar_layout" />
+                app:layout_constraintTop_toBottomOf="@id/logcat_v_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logcat_i_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:textAppearance="@style/Widget.MaterialComponents.Button"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/start_log_i"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logcat_d_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logcat_w_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:textAppearance="@style/Widget.MaterialComponents.Button"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/start_log_w"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logcat_i_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logcat_e_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:textAppearance="@style/Widget.MaterialComponents.Button"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/start_log_e"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logcat_w_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

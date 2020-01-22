@@ -7,6 +7,10 @@ interface LogcatContract {
 
     interface Presenter {
         fun attachView(view: View)
+        fun onClickLogv()
         fun onClickLogd()
+        fun onClickLogi()
+        fun onClickLogw()
+        fun onClickLoge()
     }
 }
