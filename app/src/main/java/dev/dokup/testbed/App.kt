@@ -1,5 +1,6 @@
 package dev.dokup.testbed
 
+import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dev.dokup.testbed.di.RoomModule
@@ -10,5 +11,10 @@ class App : DaggerApplication() {
             .builder()
             .roomModule(RoomModule(this))
             .build()
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
     }
 }

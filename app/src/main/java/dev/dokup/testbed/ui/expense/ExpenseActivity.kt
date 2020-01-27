@@ -3,12 +3,15 @@ package dev.dokup.testbed.ui.expense
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.PowerManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerAppCompatActivity
 import dev.dokup.testbed.R
 import dev.dokup.testbed.databinding.ActivityExpenseBinding
@@ -17,6 +20,8 @@ import dev.dokup.testbed.databinding.ItemExpenseBinding
 import dev.dokup.testbed.domain.expense.ExpenseEntity
 import dev.dokup.testbed.ui.logcat.LogcatContract
 import dev.dokup.testbed.ui.logcat.LogcatPresenter
+import kotlinx.android.synthetic.main.item_expense.*
+import kotlinx.serialization.cbor.Cbor.Companion.context
 import javax.inject.Inject
 
 class ExpenseActivity : DaggerAppCompatActivity(), ExpenseContract.View {
@@ -38,9 +43,16 @@ class ExpenseActivity : DaggerAppCompatActivity(), ExpenseContract.View {
         supportActionBar!!.setTitle(R.string.expense_sample)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        binding.saveButton.setOnClickListener {
+            val name = binding.nameEdit.text.toString()
+            val price = binding.priceEdit.text.toString()
+            presenter.onClickSaveButton(name, price)
+        }
+
         binding.recyclerView.adapter = adapter
 
         presenter.attachView(this)
+        presenter.onCreate()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,6 +67,10 @@ class ExpenseActivity : DaggerAppCompatActivity(), ExpenseContract.View {
 
     override fun showExpenses(expenseList: List<ExpenseEntity>) {
         adapter.set(expenseList)
+    }
+
+    override fun showError(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
     companion object {
@@ -107,8 +123,6 @@ class ExpenseAdapter(
         list = newList.toMutableList()
         diff.dispatchUpdatesTo(this)
     }
-
-    fun getItemAt(position: Int) = list[position]
 }
 
 class ExpenseViewHolder(
