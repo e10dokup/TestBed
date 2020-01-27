@@ -4,6 +4,7 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dev.dokup.testbed.di.ActivityModule
+import dev.dokup.testbed.di.ApiModule
 import dev.dokup.testbed.di.RepositoryModule
 import dev.dokup.testbed.di.RoomModule
 import dev.dokup.testbed.ui.main.MainActivityModule
@@ -15,7 +16,8 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         ActivityModule::class,
         RepositoryModule::class,
-        RoomModule::class
+        RoomModule::class,
+        ApiModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

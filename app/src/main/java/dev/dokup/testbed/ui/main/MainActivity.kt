@@ -1,6 +1,5 @@
 package dev.dokup.testbed.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import dagger.android.support.DaggerAppCompatActivity
@@ -30,6 +29,10 @@ class MainActivity : DaggerAppCompatActivity(), MainContract.View {
 
         binding.expenseSampleButton.setOnClickListener {
             presenter.onClickExpenseSample()
+        }
+
+        binding.dogSampleButton.setOnClickListener {
+            presenter.onClickDogSample()
         }
     }
 }

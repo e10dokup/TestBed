@@ -19,4 +19,8 @@ class MainPresenter @Inject constructor(
     override fun onClickExpenseSample() {
         navigator.navigateToExpenseSample()
     }
+
+    override fun onClickDogSample() {
+        navigator.navigateToDogSample()
+    }
 }

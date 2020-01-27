@@ -9,5 +9,6 @@ interface MainContract {
         fun attachView(view: View)
         fun onClickLogcatSample()
         fun onClickExpenseSample()
+        fun onClickDogSample()
     }
 }

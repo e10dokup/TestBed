@@ -12,4 +12,5 @@
     <string name="price">price</string>
     <string name="save_expense">Save expense</string>
     <string name="expense_sample">Expense sample</string>
+    <string name="dog_sample">Dog sample</string>
 </resources>

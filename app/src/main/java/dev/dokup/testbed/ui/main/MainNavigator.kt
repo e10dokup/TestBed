@@ -1,6 +1,7 @@
 package dev.dokup.testbed.ui.main
 
 import android.app.Activity
+import dev.dokup.testbed.ui.dog.DogActivity
 import dev.dokup.testbed.ui.expense.ExpenseActivity
 import dev.dokup.testbed.ui.logcat.LogcatActivity
 import javax.inject.Inject
@@ -14,5 +15,9 @@ class MainNavigator @Inject constructor(
 
     fun navigateToExpenseSample() {
         activity.startActivity(ExpenseActivity.createIntent(activity))
+    }
+
+    fun navigateToDogSample() {
+        activity.startActivity(DogActivity.createIntent(activity))
     }
 }
