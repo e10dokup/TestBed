@@ -6,8 +6,12 @@
     <string name="start_log_i">Start Log.i</string>
     <string name="start_log_w">Start Log.w</string>
     <string name="start_log_e">Start Log.e</string>
-    <string name="start_log_wtf">Start Log.wtf</string>
     <string name="start_log_v">Start Log.v</string>
+    <string name="start_timber_d">Start Timber.d</string>
+    <string name="start_timber_i">Start Timber.i</string>
+    <string name="start_timber_w">Start Timber.w</string>
+    <string name="start_timber_e">Start Timber.e</string>
+    <string name="start_timber_v">Start Timber.v</string>
     <string name="name">Name</string>
     <string name="price">price</string>
     <string name="save_expense">Save expense</string>

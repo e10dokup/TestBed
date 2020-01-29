@@ -46,6 +46,26 @@ class LogcatActivity : DaggerAppCompatActivity(), LogcatContract.View {
         binding.logcatEButton.setOnClickListener {
             presenter.onClickLoge()
         }
+
+        binding.timberVButton.setOnClickListener {
+            presenter.onClickTimberv()
+        }
+
+        binding.timberDButton.setOnClickListener {
+            presenter.onClickTimberd()
+        }
+
+        binding.timberIButton.setOnClickListener {
+            presenter.onClickTimberi()
+        }
+
+        binding.timberWButton.setOnClickListener {
+            presenter.onClickTimberw()
+        }
+
+        binding.timberEButton.setOnClickListener {
+            presenter.onClickTimbere()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

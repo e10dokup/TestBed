@@ -1,9 +1,10 @@
 package dev.dokup.testbed
 
-import com.jakewharton.threetenabp.AndroidThreeTen
+import android.util.Log
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dev.dokup.testbed.di.RoomModule
+import timber.log.Timber
 
 class App : DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
@@ -15,6 +16,21 @@ class App : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        AndroidThreeTen.init(this)
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        } else {
+            Timber.plant(FakeCrashReportingTree())
+        }
+    }
+}
+
+class FakeCrashReportingTree: Timber.Tree() {
+    override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
+        if (priority == Log.VERBOSE || priority == Log.DEBUG || priority == Log.INFO) {
+            return
+        }
+
+        // Do crash reporting...
     }
 }

@@ -12,5 +12,10 @@ interface LogcatContract {
         fun onClickLogi()
         fun onClickLogw()
         fun onClickLoge()
+        fun onClickTimberv()
+        fun onClickTimberd()
+        fun onClickTimberi()
+        fun onClickTimberw()
+        fun onClickTimbere()
     }
 }

@@ -82,4 +82,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
 
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
