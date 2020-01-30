@@ -7,7 +7,6 @@ import dev.dokup.testbed.di.ActivityModule
 import dev.dokup.testbed.di.ApiModule
 import dev.dokup.testbed.di.RepositoryModule
 import dev.dokup.testbed.di.RoomModule
-import dev.dokup.testbed.ui.main.MainActivityModule
 import javax.inject.Singleton
 
 @Singleton
@@ -26,4 +25,5 @@ interface AppComponent : AndroidInjector<App> {
         fun roomModule(roomModule: RoomModule): Builder
         fun build(): AppComponent
     }
+
 }

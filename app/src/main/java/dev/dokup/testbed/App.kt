@@ -1,6 +1,8 @@
 package dev.dokup.testbed
 
 import android.util.Log
+import com.facebook.stetho.Stetho
+import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dev.dokup.testbed.di.RoomModule
@@ -16,12 +18,26 @@ class App : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        AndroidThreeTen.init(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
+            setupStetho()
         } else {
             Timber.plant(CrashReportingTree())
         }
+    }
+
+    private fun setupStetho() {
+        Stetho.initializeWithDefaults(this)
+
+//        デフォルト設定以外でStethoを使う際はInitializerBuilderを使う
+//        Stetho.initialize(
+//            Stetho.newInitializerBuilder(this)
+//                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+//                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+//                .build()
+//        )
     }
 }
 
