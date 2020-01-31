@@ -10,13 +10,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerAppCompatActivity
 import dev.dokup.testbed.R
 import dev.dokup.testbed.databinding.ActivityDogBinding
 import dev.dokup.testbed.databinding.ItemDogBinding
 import dev.dokup.testbed.domain.dog.Dogs
+import dev.dokup.testbed.glide.GlideApp
 import javax.inject.Inject
 
 class DogActivity : DaggerAppCompatActivity(), DogContract.View {
@@ -98,7 +98,7 @@ class DogAdapter(
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         val dogUrl = list[position]
-        Glide.with(holder.binding.image)
+        GlideApp.with(holder.binding.image)
             .load(dogUrl)
             .into(holder.binding.image)
     }

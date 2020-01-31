@@ -1,31 +1,54 @@
 package dev.dokup.testbed
 
 import android.util.Log
+import com.facebook.flipper.android.AndroidFlipperClient
+import com.facebook.flipper.android.utils.FlipperUtils
+import com.facebook.soloader.SoLoader
 import com.facebook.stetho.Stetho
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dev.dokup.testbed.di.RoomModule
+import dev.dokup.testbed.glide.CustomAppGlideModule
+import dev.dokup.testbed.glide.GlideModuleComponentInjector
 import timber.log.Timber
 
-class App : DaggerApplication() {
+class App : DaggerApplication(), GlideModuleComponentInjector {
+    lateinit var component: AppComponent
+        protected set
+
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent
+        component = DaggerAppComponent
             .builder()
             .roomModule(RoomModule(this))
             .build()
+        return component
     }
 
     override fun onCreate() {
         super.onCreate()
+
         AndroidThreeTen.init(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
-            setupStetho()
         } else {
             Timber.plant(CrashReportingTree())
         }
+
+        if (BuildConfig.DEBUG) {
+            setupStetho()
+        }
+
+        SoLoader.init(this, false)
+
+        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+            setupFlipper()
+        }
+    }
+
+    override fun inject(module: CustomAppGlideModule) {
+        component.inject(module)
     }
 
     private fun setupStetho() {
@@ -38,6 +61,10 @@ class App : DaggerApplication() {
 //                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
 //                .build()
 //        )
+    }
+
+    private fun setupFlipper() {
+        AndroidFlipperClient.getInstance(this).start()
     }
 }
 

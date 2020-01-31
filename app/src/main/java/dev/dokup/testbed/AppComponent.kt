@@ -3,10 +3,8 @@ package dev.dokup.testbed
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import dev.dokup.testbed.di.ActivityModule
-import dev.dokup.testbed.di.ApiModule
-import dev.dokup.testbed.di.RepositoryModule
-import dev.dokup.testbed.di.RoomModule
+import dev.dokup.testbed.di.*
+import dev.dokup.testbed.glide.CustomAppGlideModule
 import javax.inject.Singleton
 
 @Singleton
@@ -16,7 +14,8 @@ import javax.inject.Singleton
         ActivityModule::class,
         RepositoryModule::class,
         RoomModule::class,
-        ApiModule::class
+        ApiModule::class,
+        OkHttpClientModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {
@@ -26,4 +25,5 @@ interface AppComponent : AndroidInjector<App> {
         fun build(): AppComponent
     }
 
+    fun inject(module: CustomAppGlideModule): CustomAppGlideModule
 }

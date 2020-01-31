@@ -1,6 +1,5 @@
 package dev.dokup.testbed.di
 
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -14,14 +13,6 @@ import javax.inject.Singleton
 
 @Module
 public class ApiModule {
-
-    @Singleton
-    @Provides
-    fun provideOkHttpClient(): OkHttpClient =
-        OkHttpClient.Builder()
-            .addNetworkInterceptor(StethoInterceptor())
-            .build()
-
     @Singleton
     @Provides
     fun provideDogApi(okHttpClient: OkHttpClient): DogApi {
