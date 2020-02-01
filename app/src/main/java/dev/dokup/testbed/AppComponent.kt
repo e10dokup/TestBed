@@ -22,6 +22,7 @@ interface AppComponent : AndroidInjector<App> {
     @Component.Builder
     interface Builder {
         fun roomModule(roomModule: RoomModule): Builder
+        fun okHttpClientModule(okHttpClientModule: OkHttpClientModule): Builder
         fun build(): AppComponent
     }
 

@@ -3,11 +3,16 @@ package dev.dokup.testbed
 import android.util.Log
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
+import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin
+import com.facebook.flipper.plugins.inspector.DescriptorMapping
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.facebook.stetho.Stetho
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import dev.dokup.testbed.di.OkHttpClientModule
 import dev.dokup.testbed.di.RoomModule
 import dev.dokup.testbed.glide.CustomAppGlideModule
 import dev.dokup.testbed.glide.GlideModuleComponentInjector
@@ -17,10 +22,13 @@ class App : DaggerApplication(), GlideModuleComponentInjector {
     lateinit var component: AppComponent
         protected set
 
+    val networkFlipperPlugin = NetworkFlipperPlugin()
+
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         component = DaggerAppComponent
             .builder()
             .roomModule(RoomModule(this))
+            .okHttpClientModule(OkHttpClientModule(this))
             .build()
         return component
     }
@@ -64,7 +72,20 @@ class App : DaggerApplication(), GlideModuleComponentInjector {
     }
 
     private fun setupFlipper() {
-        AndroidFlipperClient.getInstance(this).start()
+        AndroidFlipperClient.getInstance(this).apply {
+            addPlugin(
+                InspectorFlipperPlugin(
+                    this@App,
+                    DescriptorMapping.withDefaults()
+                )
+            )
+            addPlugin(
+                networkFlipperPlugin
+            )
+            addPlugin(
+                DatabasesFlipperPlugin(this@App)
+            )
+        }.start()
     }
 }
 
