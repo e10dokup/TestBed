@@ -1,10 +1,10 @@
 package dev.dokup.testbed.ui.dog
 
-import android.util.Log
 import dev.dokup.testbed.domain.dog.DogRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
+import timber.log.Timber
 import javax.inject.Inject
 
 class DogPresenter @Inject constructor(
@@ -33,7 +33,7 @@ class DogPresenter @Inject constructor(
             .subscribe({
                 view.showDogs(it)
             }, {
-                Log.e("loadDogs", it.localizedMessage, it)
+                Timber.e(it, it.localizedMessage)
                 view.showError(it?.localizedMessage ?: "Failure load expenses")
             })
             .addTo(disposable)
