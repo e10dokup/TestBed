@@ -10,5 +10,6 @@ interface MainContract {
         fun onClickLogcatSample()
         fun onClickExpenseSample()
         fun onClickDogSample()
+        fun onClickMemoryLeakSample()
     }
 }

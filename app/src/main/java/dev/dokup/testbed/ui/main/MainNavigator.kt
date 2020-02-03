@@ -4,6 +4,7 @@ import android.app.Activity
 import dev.dokup.testbed.ui.dog.DogActivity
 import dev.dokup.testbed.ui.expense.ExpenseActivity
 import dev.dokup.testbed.ui.logcat.LogcatActivity
+import dev.dokup.testbed.ui.memoryleak.MemoryLeakActivity
 import javax.inject.Inject
 
 class MainNavigator @Inject constructor(
@@ -19,5 +20,9 @@ class MainNavigator @Inject constructor(
 
     fun navigateToDogSample() {
         activity.startActivity(DogActivity.createIntent(activity))
+    }
+
+    fun navigateToMemoryLeakSample() {
+        activity.startActivity(MemoryLeakActivity.createIntent(activity))
     }
 }

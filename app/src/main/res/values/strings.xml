@@ -17,4 +17,7 @@
     <string name="save_expense">Save expense</string>
     <string name="expense_sample">Expense sample</string>
     <string name="dog_sample">Dog sample</string>
+    <string name="sample_button">Sample Buttom</string>
+    <string name="memory_leak_sample">Memory Leak Sample</string>
+    <string name="transit_next">Transit to next fragment</string>
 </resources>

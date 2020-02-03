@@ -36,6 +36,12 @@
         <activity
             android:name=".ui.dog.DogActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.memoryleak.MemoryLeakActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
         <activity android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true"/>

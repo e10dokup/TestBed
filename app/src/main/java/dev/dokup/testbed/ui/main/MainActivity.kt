@@ -34,5 +34,9 @@ class MainActivity : DaggerAppCompatActivity(), MainContract.View {
         binding.dogSampleButton.setOnClickListener {
             presenter.onClickDogSample()
         }
+
+        binding.memoryLeakSampleButton.setOnClickListener {
+            presenter.onClickMemoryLeakSample()
+        }
     }
 }

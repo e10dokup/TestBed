@@ -23,4 +23,8 @@ class MainPresenter @Inject constructor(
     override fun onClickDogSample() {
         navigator.navigateToDogSample()
     }
+
+    override fun onClickMemoryLeakSample() {
+        navigator.navigateToMemoryLeakSample()
+    }
 }
